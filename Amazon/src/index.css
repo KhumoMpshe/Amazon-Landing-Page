@@ -1,5 +1,53 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
+:root {
+  --color-bg: #eaeded;
+  --color-surface: #ffffff;
+  --color-text: #0f1111;
+  --color-text-muted: #565959;
+  --color-border: #d5d9d9;
+  --color-navy: #131921;
+  --color-navy-light: #232f3e;
+  --color-accent: #febd69;
+  --color-link: #007185;
+  --color-success: #007600;
+  --shadow-card: 0 2px 5px rgba(15, 17, 17, 0.15);
 }
 
+[data-theme="dark"] {
+  --color-bg: #0f1111;
+  --color-surface: #1b1f23;
+  --color-text: #f1f1f1;
+  --color-text-muted: #b8bcbf;
+  --color-border: #3a3f44;
+  --color-navy: #0a0e14;
+  --color-navy-light: #1a2230;
+  --color-accent: #febd69;
+  --color-link: #4fc3d9;
+  --color-success: #3ec23e;
+  --shadow-card: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Amazon Ember", Arial, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}

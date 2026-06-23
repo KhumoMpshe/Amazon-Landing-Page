@@ -1,0 +1,23 @@
+.discover-section {
+  background: var(--color-bg);
+  padding-top: 10px;
+}
+
+.browsing-history-note {
+  max-width: 1500px;
+  margin: 10px auto 0;
+  padding: 16px;
+  font-size: 13px;
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border);
+}
+
+.browsing-history-link {
+  color: var(--color-link);
+  text-decoration: none;
+}
+
+.browsing-history-link:hover {
+  text-decoration: underline;
+}
+

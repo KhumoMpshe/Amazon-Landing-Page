@@ -1,0 +1,98 @@
+.trust-badges {
+  background: var(--color-surface);
+  padding: 24px 16px;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.trust-badges h2 {
+  font-size: 22px;
+  margin: 0 0 18px;
+  color: var(--color-text);
+}
+
+.trust-badges-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.trust-badges-track {
+  display: flex;
+  gap: 28px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 4px 8px;
+  /* Hide scrollbar visually but keep it scrollable */
+  scrollbar-width: none;
+}
+
+.trust-badges-track::-webkit-scrollbar {
+  display: none;
+}
+
+.trust-badge {
+  flex: 0 0 auto;
+  width: 140px;
+  text-align: center;
+}
+
+.trust-badge-icon {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 12px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 38px;
+  color: #0f1111;
+}
+
+.trust-badge p {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+  color: var(--color-text);
+}
+
+.trust-arrow {
+  flex-shrink: 0;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: var(--color-text);
+  z-index: 2;
+  box-shadow: var(--shadow-card);
+}
+
+.trust-arrow.left {
+  margin-right: -18px;
+}
+
+.trust-arrow.right {
+  margin-left: -18px;
+}
+
+@media (max-width: 540px) {
+  .trust-badge {
+    width: 110px;
+  }
+
+  .trust-badge-icon {
+    width: 76px;
+    height: 76px;
+    font-size: 28px;
+  }
+
+  .trust-badge p {
+    font-size: 12px;
+  }
+}

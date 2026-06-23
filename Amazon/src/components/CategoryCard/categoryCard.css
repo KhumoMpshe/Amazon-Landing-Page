@@ -1,0 +1,20 @@
+.category-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+.category-card:hover {
+  border-color: var(--color-link);
+}
+
+.category-card.active {
+  background: var(--color-navy);
+  color: white;
+  border-color: var(--color-navy);
+}
