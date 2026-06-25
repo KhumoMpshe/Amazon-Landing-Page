@@ -1,0 +1,122 @@
+.cart-sidebar {
+  width: 320px;
+  background: var(--color-surface);
+  border-left: 1px solid var(--color-border);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: -6px 0 20px rgba(0,0,0,0.06);
+  position: sticky;
+  top: 96px;
+  align-self: start;
+  max-height: calc(100vh - 120px);
+  overflow: hidden;
+}
+
+.cart-sidebar-header h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.cart-sidebar-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.cart-sidebar-item {
+  display: grid;
+  grid-template-columns: 64px 1fr 64px;
+  gap: 8px;
+  align-items: center;
+}
+
+.cart-sidebar-item img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: #fff;
+}
+
+.cart-sidebar-item-title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.cart-sidebar-item-meta {
+  color: var(--color-text-muted);
+  font-size: 13px;
+}
+
+.cart-sidebar-footer {
+  margin-top: auto;
+}
+
+.cart-sidebar-subtotal {
+  margin: 0 0 8px 0;
+  font-size: 15px;
+}
+
+.cart-sidebar-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.cart-sidebar-view, .cart-sidebar-checkout {
+  flex: 1;
+  padding: 8px 10px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+.cart-sidebar-view {
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+}
+
+.cart-sidebar-checkout {
+  background: #ffd814;
+  color: #111;
+  font-weight: 700;
+.cart-sidebar-item-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+.remove-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 16px;
+}
+.qty-control-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 2px solid #ffd814;
+  background: #fff;
+}
+.qty-icon {
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0 6px;
+}
+.qty-value {
+  min-width: 18px;
+  text-align: center;
+  font-weight: 700;
+}
+}

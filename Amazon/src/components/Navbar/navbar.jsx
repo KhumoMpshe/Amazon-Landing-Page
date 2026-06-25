@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
   FaShoppingBasket,
@@ -8,6 +8,7 @@ import {
 } from "react-icons/fa";
 import LocationDisplay from "../LocationDisplay";
 import { useCart } from "../../context/cartContext";
+import { useAccount } from "../../context/accountContext";
 import logo from "../../assets/logo.svg";
 import "./navbar.css";
 
@@ -26,13 +27,27 @@ const SUB_LINKS = [
 function Navbar() {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All");
+  const [accountOpen, setAccountOpen] = useState(false);
+  const accountRef = useRef(null);
   const { cartCount } = useCart();
+  const { user, signOut } = useAccount();
   const navigate = useNavigate();
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-    navigate(`/?q=${encodeURIComponent(search.trim())}`);
+    navigate(`/products?q=${encodeURIComponent(search.trim())}`);
   };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (accountRef.current && !accountRef.current.contains(event.target)) {
+        setAccountOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
     <header className="navbar">
@@ -70,22 +85,49 @@ function Navbar() {
         </form>
 
         <div className="navbar-top-right">
-          <button type="button" className="nav-item nav-account">
-            <span className="nav-item-line">Hello, Khumo</span>
-            <span className="nav-item-main">
-              Account &amp; Lists
-              <FaChevronDown className="nav-chevron" />
-            </span>
-          </button>
+          <div ref={accountRef} className="nav-account-wrapper">
+            <button
+              type="button"
+              className="nav-item nav-account"
+              onClick={() => {
+                if (user) {
+                  setAccountOpen((open) => !open);
+                } else {
+                  navigate("/signin");
+                }
+              }}
+            >
+              <span className="nav-item-line">Hello, {user ? user.name : "Sign in"}</span>
+              <span className="nav-item-main">
+                Account &amp; Lists
+                <FaChevronDown className="nav-chevron" />
+              </span>
+            </button>
 
-          <button type="button" className="nav-item nav-orders">
+            {user && accountOpen && (
+              <div className="nav-account-dropdown">
+                <button
+                  type="button"
+                  className="nav-account-dropdown-item"
+                  onClick={() => {
+                    signOut();
+                    setAccountOpen(false);
+                    navigate("/");
+                  }}
+                >
+                  Sign out
+                </button>
+              </div>
+            )}
+          </div>
+          <Link to={user ? "/orders" : "/signin"} className="nav-item nav-orders">
             <span className="nav-item-line">Returns</span>
             <span className="nav-item-main">&amp; Orders</span>
-          </button>
+          </Link>
 
           <Link to="/cart" className="nav-item nav-basket">
             <span className="nav-basket-icon-wrap">
-              <span className="nav-basket-count">{cartCount}</span>
+              {cartCount > 0 && <span className="nav-basket-count">{cartCount}</span>}
               <FaShoppingBasket className="nav-basket-icon" />
             </span>
             <span className="nav-basket-label">Basket</span>

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link, useNavigate } from "react-router-dom";
 import PromoRow from "../PromoRow/promoRow";
 import "./discoverSection.css";
 
@@ -66,26 +66,26 @@ const ROW_TWO = [
   }
 ];
 
-function scrollToProducts() {
-  document.getElementById("product-section")?.scrollIntoView({ behavior: "smooth" });
-}
-
 export function DiscoverRowOne() {
+  const navigate = useNavigate();
+
   return (
     <section className="discover-section">
-      <PromoRow cards={ROW_ONE} onCardClick={scrollToProducts} />
+      <PromoRow cards={ROW_ONE} onCardClick={() => navigate("/products")} />
     </section>
   );
 }
 
 export function DiscoverRowTwo() {
+  const navigate = useNavigate();
+
   return (
     <section className="discover-section">
-      <PromoRow cards={ROW_TWO} onCardClick={scrollToProducts} />
+      <PromoRow cards={ROW_TWO} onCardClick={() => navigate("/products")} />
 
       <p className="browsing-history-note">
         After viewing product detail pages, look here to find an easy way to
-        navigate back to pages you are interested in.{" "}
+        navigate back to pages you are interested in. {" "}
         <Link to="/" className="browsing-history-link">
           View or edit your browsing history
         </Link>

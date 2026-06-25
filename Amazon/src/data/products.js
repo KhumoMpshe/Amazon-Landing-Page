@@ -1,4 +1,4 @@
-export const categories = ["Electronics", "Fashion", "Home", "Books"];
+export const categories = ["All", "Electronics", "Fashion", "Home", "Books"];
 
 export const products = [
   {
@@ -7,7 +7,7 @@ export const products = [
     price: 999,
     rating: 4.5,
     category: "Electronics",
-    image: "https://placehold.co/300x300/232f3e/ffffff?text=Headphones"
+    image: "https://m.media-amazon.com/images/I/61WyJZWEhzL._AC_SX679_.jpg"
   },
   {
     id: 2,
@@ -15,7 +15,7 @@ export const products = [
     price: 499,
     rating: 4.8,
     category: "Electronics",
-    image: "https://placehold.co/300x300/232f3e/ffffff?text=Gaming+Mouse"
+    image: "https://m.media-amazon.com/images/I/614OAIJD7tL._AC_SY300_SX300_QL70_ML2_.jpg"
   },
   {
     id: 3,
@@ -23,7 +23,7 @@ export const products = [
     price: 4299,
     rating: 4.6,
     category: "Electronics",
-    image: "https://placehold.co/300x300/232f3e/ffffff?text=Monitor"
+    image: "https://m.media-amazon.com/images/I/51YdKLgzodL._AC_SY300_SX300_QL70_ML2_.jpg"
   },
   {
     id: 4,
@@ -31,7 +31,7 @@ export const products = [
     price: 749,
     rating: 4.2,
     category: "Fashion",
-    image: "https://placehold.co/300x300/d5b895/232f3e?text=Denim+Jacket"
+    image: "https://m.media-amazon.com/images/I/51uApFPOvyL._AC_SX679_.jpg"
   },
   {
     id: 5,
@@ -39,7 +39,7 @@ export const products = [
     price: 1199,
     rating: 4.7,
     category: "Fashion",
-    image: "https://placehold.co/300x300/d5b895/232f3e?text=Sneakers"
+    image: "https://m.media-amazon.com/images/I/61gzs+LamnL._AC_SY695_.jpg"
   },
   {
     id: 6,
@@ -47,15 +47,15 @@ export const products = [
     price: 1599,
     rating: 4.4,
     category: "Home",
-    image: "https://placehold.co/300x300/e8e3d8/232f3e?text=Cookware"
+    image: "https://m.media-amazon.com/images/I/51eXLwIEl3L._AC_SX679_.jpg"
   },
   {
     id: 7,
     title: "Memory Foam Pillow (2-Pack)",
-    price: 399,
+    price: 799,
     rating: 4.3,
     category: "Home",
-    image: "https://placehold.co/300x300/e8e3d8/232f3e?text=Pillow"
+    image: "https://m.media-amazon.com/images/I/31qePhPUXJL._AC_.jpg"
   },
   {
     id: 8,
@@ -63,6 +63,6 @@ export const products = [
     price: 289,
     rating: 4.9,
     category: "Books",
-    image: "https://placehold.co/300x300/f3a847/232f3e?text=Book"
+    image: "https://m.media-amazon.com/images/I/817HaeblezL._SY466_.jpg"
   }
 ];

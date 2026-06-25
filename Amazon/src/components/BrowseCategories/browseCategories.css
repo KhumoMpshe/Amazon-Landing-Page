@@ -42,6 +42,7 @@
 
 .browse-nav:hover {
   background: #fff;
+  box-shadow: var(--shadow-card);
 }
 
 .browse-nav-left {
@@ -64,6 +65,11 @@
   min-width: 200px;
 }
 
+.browse-item:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease-in-out;
+}
+
 .browse-circle {
   width: 200px;
   height: 200px;
@@ -73,6 +79,8 @@
   align-items: center;
   justify-content: center;
   gap: 20px;
+  border: 1px solid rgba(15, 17, 17, 0.12);
+  box-shadow: var(--shadow-card);
 }
 
 .browse-circle img {

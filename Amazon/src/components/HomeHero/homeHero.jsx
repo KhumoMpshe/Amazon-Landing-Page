@@ -3,8 +3,6 @@ import { FaChevronLeft, FaChevronRight, FaPause, FaPlay } from "react-icons/fa";
 import PromoRow from "../PromoRow/promoRow";
 import "./homeHero.css";
 
-// Carousel slides. Each one mirrors the layout of the real Amazon hero:
-// a bold heading, a short line, a sub-line, and a background colour.
 const SLIDES = [
   {
     id: 1,
@@ -17,67 +15,58 @@ const SLIDES = [
     id: 2,
     backgroundImage:
       "https://m.media-amazon.com/images/I/61KNtN4L4pL._SR3000,600_.jpg",
-    bg: "#0f1111",
+    bg: "#0076ff",
     imageOnly: true
   },
-  {
-    id: 3,
-    backgroundImage:
-      "https://m.media-amazon.com/images/I/61WH4lrlVrL._SX3000_.jpg",
-    bg: "#e8743b",
-    imageOnly: true
-  }
 ];
 
-// Second-row promo cards (the smaller 4-up + 4-up grid below the carousel).
-// Each one scrolls down to the product grid when clicked, per the brief.
 const PROMO_CARDS = [
   {
-    id: "prime",
-    title: "Meet Amazon Prime",
-    cta: "Start your 30 day free trial",
-    image: "https://placehold.co/400x300/1f5fd6/ffffff?text=Amazon+Prime"
+    id: "all-deals",
+    title: "All discounts & deals",
+    cta: <a href='/products'>Shop now</a>,
+    image: "https://images-eu.ssl-images-amazon.com/images/G/53/RBSxFELA/2025/BuzzDeals/Steal_deals0.5x._SY304_CB759706798_.jpg"
   },
   {
     id: "home",
     title: "Up to 35% of Home & Kitchen",
-    cta: "Shop Now",
+    cta: <a href='/products'>Shop Now</a>,
     image: "https://images-eu.ssl-images-amazon.com/images/G/53/RBSxFELA/2026/Primeday/Home_and_kitchen0.5x._SY304_CB759895011_.jpg"
   },
   {
-    id: "deals",
-    title: "Steal deals",
-    cta: "Shop Now",
-    image: "https://images-eu.ssl-images-amazon.com/images/G/53/RBSxFELA/2025/BuzzDeals/Steal_deals0.5x._SY304_CB759706798_.jpg"
+    id: "bags",
+    title: "Deals on Alanes",
+    cta: <a href='/products'>Shop Now</a>,
+    image: "https://images-eu.ssl-images-amazon.com/images/G/53/RBSxFELA/2025/Alanes_CC0.5x._SY304_CB759808754_.jpg"
   },
   {
     id: "cosmetics",
     title: "Enjoy up to 45% off on Nivea",
-    cta: "Shop Now",
+    cta: <a href='/products'>Shop Now</a>,
     image: "https://images-eu.ssl-images-amazon.com/images/G/53/RBSxFELA/2025/Raeesa/NIVEA_AMAZON_RSA_HVE_PLATINUM_PACKAGE_BANNER_02_379x304_1._SY304_CB759913199_.jpg"
   },
   {
     id: "fathersday",
     title: "Shop the perfect gift this Fathers Day",
-    cta: "Shop now",
+    cta: <a href='/products'>Shop now</a>,
     image: "https://images-eu.ssl-images-amazon.com/images/G/53/RBSxFELA/2026/Primeday/Frame_2._SY304_CB759693611_.jpg"
   },
   {
     id: "primevideo",
     title: "Prime Day Deals",
-    cta: "Shop Now",
+    cta: <a href='/products'>Shop Now</a>,
     image: "https://images-eu.ssl-images-amazon.com/images/G/53/RBSxFELA/2025/BuzzDeals/PRime_day_deals0.5x._SY304_CB759706798_.jpg"
   },
   {
     id: "shoes",
     title: "Up to 30% off Shoes",
-    cta: "Shop now",
+    cta: <a href='/products'>Shop now</a>,
     image: "https://images-eu.ssl-images-amazon.com/images/G/53/RBSxFELA/2025/BuzzDeals/Shoes_0.5x._SY304_CB759706798_.jpg"
   },
   {
     id: "baby",
     title: "Shop Baby Deals",
-    cta: "Shop Now",
+    cta: <a href='/products'>Shop Now</a>,
     image: "https://images-eu.ssl-images-amazon.com/images/G/53/RBSxFELA/2025/Baby0.5x_2_1._SY304_CB759943858_.jpg"
   }
 ];
@@ -87,8 +76,6 @@ function HomeHero() {
   const [paused, setPaused] = useState(false);
   const timerRef = useRef(null);
 
-  // Auto-advance every 5s unless paused. Cleaning up the interval on every
-  // dependency change is what stops multiple timers stacking up.
   useEffect(() => {
     if (paused) return;
 

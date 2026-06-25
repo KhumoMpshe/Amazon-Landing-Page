@@ -1,0 +1,126 @@
+.orders-page {
+  max-width: 980px;
+  margin: 40px auto;
+  padding: 0 16px;
+}
+
+.orders-card {
+  background: var(--color-surface);
+  border-radius: 16px;
+  box-shadow: var(--shadow-card);
+  padding: 28px;
+}
+
+.orders-card h1 {
+  margin: 0 0 20px;
+}
+
+.orders-empty,
+.orders-card > p {
+  color: var(--color-text-muted);
+}
+
+.orders-link {
+  display: inline-block;
+  margin-top: 16px;
+  text-decoration: none;
+  color: #0f1111;
+  font-weight: 700;
+}
+
+.orders-list {
+  display: grid;
+  gap: 18px;
+}
+
+.order-item {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.order-header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.order-delete-btn {
+  background: transparent;
+  border: 1px solid #d1d5db;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  color: #6b7280;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.order-delete-btn:hover {
+  background: #f3f4f6;
+  border-color: #9ca3af;
+  color: #111827;
+}
+
+.order-title {
+  font-weight: 700;
+  margin: 0 0 6px;
+}
+
+.order-date,
+.order-total {
+  color: var(--color-text-muted);
+}
+
+.order-details {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.order-product {
+  display: grid;
+  grid-template-columns: 72px 1fr auto;
+  gap: 14px;
+  align-items: center;
+  padding: 14px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+}
+
+.order-product img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.order-summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 768px) {
+  .order-header,
+  .order-product {
+    grid-template-columns: 1fr;
+  }
+
+  .order-summary {
+    flex-direction: column;
+  }
+}

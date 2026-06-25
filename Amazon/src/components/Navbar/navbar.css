@@ -26,7 +26,7 @@
 }
 
 .logo:hover {
-  outline: 1px solid #fff;
+  outline: none;
   border-radius: 2px;
 }
 
@@ -92,7 +92,7 @@
   background: #e6e6e6;
   border: none;
   border-right: 1px solid #cdcdcd;
-  padding: 0 28px 0 10px;
+  padding: 0 15px 0 15px;
   font-size: 12px;
   color: #0f1111;
   cursor: pointer;
@@ -137,21 +137,66 @@
   display: flex;
   align-items: center;
   flex-shrink: 0;
+  flex-wrap: wrap;
+  gap: 6px;
 }
 
 .nav-item {
-  background: none;
+  background: rgba(255, 255, 255, 0.07);
   border: 1px solid transparent;
-  border-radius: 2px;
+  border-radius: 6px;
   color: #fff;
   text-decoration: none;
-  padding: 8px 9px;
+  padding: 8px 10px;
   text-align: left;
   line-height: 1.2;
+  transition: background 0.2s ease, transform 0.15s ease, border-color 0.2s ease;
 }
 
 .nav-item:hover {
-  border-color: #fff;
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.nav-account-wrapper {
+  position: relative;
+}
+
+
+.nav-basket {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  padding-bottom: 6px;
+}
+
+.nav-account-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  min-width: 160px;
+  background: #fff;
+  color: #111;
+  border-radius: 8px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+  padding: 8px 0;
+  z-index: 200;
+}
+
+.nav-account-dropdown-item {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 10px 16px;
+  text-align: left;
+  color: #111;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.nav-account-dropdown-item:hover {
+  background: #f3f4f6;
 }
 
 .nav-item-line {
@@ -317,6 +362,10 @@
     gap: 8px;
   }
 
+  .nav-account-wrapper {
+    order: 0;
+  }
+
   .search-form {
     order: 3;
     flex: 1 1 100%;
@@ -328,10 +377,44 @@
 }
 
 @media (max-width: 768px) {
-  .location-link,
+  .nav-account-wrapper {
+    order: -1;
+  }
+
+  .navbar-top {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .location-link {
+    display: none;
+  }
+
   .nav-account,
   .nav-orders {
-    display: none;
+    display: flex;
+    align-items: center;
+    padding: 6px 8px;
+    font-size: 12px;
+    min-width: 0;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    border: 1px solid transparent;
+  }
+
+  .nav-account:hover,
+  .nav-orders:hover {
+    background: rgba(255, 255, 255, 0.16);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .nav-item-line {
+    font-size: 10px;
+  }
+
+  .nav-item-main {
+    font-size: 12px;
   }
 
   .navbar-top {
@@ -352,7 +435,125 @@
     display: none;
   }
 
+  .nav-item {
+    padding: 5px 7px;
+    border-radius: 5px;
+  }
+
   .nav-basket-label {
     display: none;
+  }
+}
+
+@media (max-width: 320px) {
+  .navbar-top {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+      "logo account"
+      "search search"
+      "location location";
+    gap: 8px;
+    padding: 8px 10px;
+    align-items: start;
+    width: 100%;
+  }
+
+  .logo {
+    grid-area: logo;
+    order: 0;
+    flex: 0 0 auto;
+  }
+
+  .navbar-top-right {
+    grid-area: account;
+    order: 1;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    gap: 4px 8px;
+    align-items: start;
+    justify-items: stretch;
+    min-width: 0;
+    justify-self: stretch;
+  }
+
+  .nav-account-wrapper {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    margin-left: 0;
+  }
+
+  .nav-orders {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: start;
+    margin-left: 0;
+  }
+
+  .nav-basket {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: end;
+  }
+
+  .location-link {
+    grid-area: location;
+    width: 100%;
+  }
+
+  .search-form {
+    grid-area: search;
+    width: 100%;
+  }
+
+  .nav-item {
+    padding: 4px 5px;
+    border-radius: 5px;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .nav-item-line {
+    font-size: 9px;
+  }
+
+  .nav-item-main {
+    font-size: 11px;
+  }
+
+  .logo {
+    min-width: 72px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  .logo-img {
+    height: 44px !important;
+    max-height: 44px !important;
+    width: auto !important;
+    display: block !important;
+  }
+
+  .navbar-sub {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .sub-links {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+  }
+
+  .sub-link {
+    font-size: 12px;
+    padding: 5px 8px;
+    min-width: 0;
+    white-space: nowrap;
   }
 }

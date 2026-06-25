@@ -3,13 +3,13 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import "./browseCategories.css";
 
 const BROWSE_CATEGORIES = [
-  { id: 1, label: "Deals", bg: "#1c2b3a", image: "https://images-eu.ssl-images-amazon.com/images/G/53/RBSxFELA/2025/BuzzDeals/Steal_deals0.5x._SY304_CB759706798_.jpg" },
-  { id: 2, label: "Books", bg: "#f0ead6", image: "https://m.media-amazon.com/images/I/718fM6JMrcL._SY342_.jpg" },
+  { id: 1, label: "Deals", bg: "rgb(3 106 243)", image: "https://images-eu.ssl-images-amazon.com/images/G/53/RBSxFELA/2025/BuzzDeals/Steal_deals0.5x._SY304_CB759706798_.jpg" },
+  { id: 2, label: "Books", bg: "rgb(247 245 248)", image: "https://m.media-amazon.com/images/I/718fM6JMrcL._SY342_.jpg" },
   { id: 3, label: "Electronics", bg: "#8e1f1f", image: "https://m.media-amazon.com/images/I/719d5u53OdL._AC_UL480_FMwebp_QL65_.jpg" },
-  { id: 4, label: "Health & Personal Care", bg: "#e8743b", image: "https://m.media-amazon.com/images/I/51Opcf5o80L._AC_UL480_FMwebp_QL65_.jpg" },
-  { id: 5, label: "Jewellery", bg: "#e8e3d8", image: "https://m.media-amazon.com/images/I/61-B26GgSdL._AC_UL480_FMwebp_QL65_.jpg" },
-  { id: 6, label: "Toys & Games", bg: "#e8a23b", image: "https://m.media-amazon.com/images/I/71jFm4ucTxL._AC_UL480_FMwebp_QL65_.jpg" },
-  { id: 7, label: "Baby", bg: "#f3e6d8", image: "https://m.media-amazon.com/images/I/41uZGVpGVbL._AC_UL480_FMwebp_QL65_.jpg" }
+  { id: 4, label: "Health & Personal Care", bg: "rgb(255 255 255)", image: "https://m.media-amazon.com/images/I/51Opcf5o80L._AC_UL480_FMwebp_QL65_.jpg" },
+  { id: 5, label: "Jewellery", bg: "rgb(255 255 255)", image: "https://m.media-amazon.com/images/I/61-B26GgSdL._AC_UL480_FMwebp_QL65_.jpg" },
+  { id: 6, label: "Toys & Games", bg: "rgb(255 255 255)", image: "https://m.media-amazon.com/images/I/71jFm4ucTxL._AC_UL480_FMwebp_QL65_.jpg" },
+  { id: 7, label: "Baby", bg: "rgb(255 255 255)", image: "https://m.media-amazon.com/images/I/41uZGVpGVbL._AC_UL480_FMwebp_QL65_.jpg" }
 ];
 
 function BrowseCategories() {
