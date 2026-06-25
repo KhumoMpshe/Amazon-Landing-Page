@@ -14,6 +14,13 @@ const PRICE_RANGES = [
   { label: "Over R1500", min: 1500, max: Infinity }
 ];
 
+const SORT_OPTIONS = [
+  { value: "relevance", label: "Relevance" },
+  { value: "priceLowHigh", label: "Price: Low to High" },
+  { value: "priceHighLow", label: "Price: High to Low" },
+  { value: "newest", label: "Newest" }
+];
+
 function Products() {
   const [searchParams] = useSearchParams();
   const searchTerm = searchParams.get("q") || "";
@@ -21,13 +28,14 @@ function Products() {
 
   const [activeCategory, setActiveCategory] = useState("All");
   const [activeRange, setActiveRange] = useState(PRICE_RANGES[0]);
+  const [sortOption, setSortOption] = useState("relevance");
 
   const handleCategorySelect = (category) => {
     setActiveCategory((prev) => (prev === category ? "All" : category));
   };
 
   const visibleProducts = useMemo(() => {
-    return products.filter((product) => {
+    const filtered = products.filter((product) => {
       const matchesCategory =
         activeCategory === "All" || product.category === activeCategory;
 
@@ -40,7 +48,24 @@ function Products() {
 
       return matchesCategory && matchesPrice && matchesSearch;
     });
-  }, [activeCategory, activeRange, searchTerm]);
+
+    const sorted = [...filtered];
+    switch (sortOption) {
+      case "priceLowHigh":
+        sorted.sort((a, b) => a.price - b.price);
+        break;
+      case "priceHighLow":
+        sorted.sort((a, b) => b.price - a.price);
+        break;
+      case "newest":
+        sorted.sort((a, b) => b.id - a.id);
+        break;
+      default:
+        break;
+    }
+
+    return sorted;
+  }, [activeCategory, activeRange, searchTerm, sortOption]);
 
     const hasCart = drawerOpen && cart.length > 0;
 
@@ -111,16 +136,34 @@ function Products() {
                 </section>
 
                 <section className="filter-bar">
-                    <span className="filter-label">Price:</span>
-                    {PRICE_RANGES.map((range) => (
-                    <button
-                        key={range.label}
-                        className={`price-pill ${activeRange.label === range.label ? "active" : ""}`}
-                        onClick={() => setActiveRange(range)}
-                    >
-                        {range.label}
-                    </button>
-                    ))}
+                    <div className="price-filter">
+                        <span className="filter-label">Price:</span>
+                        {PRICE_RANGES.map((range) => (
+                        <button
+                            key={range.label}
+                            className={`price-pill ${activeRange.label === range.label ? "active" : ""}`}
+                            onClick={() => setActiveRange(range)}
+                        >
+                            {range.label}
+                        </button>
+                        ))}
+                    </div>
+
+                    <div className="sort-control">
+                        <label htmlFor="sort-select" className="sort-label">Sort by:</label>
+                        <select
+                            id="sort-select"
+                            className="sort-select"
+                            value={sortOption}
+                            onChange={(e) => setSortOption(e.target.value)}
+                        >
+                            {SORT_OPTIONS.map((option) => (
+                                <option key={option.value} value={option.value}>
+                                    {option.label}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
                 </section>
 
                 {searchTerm && (
